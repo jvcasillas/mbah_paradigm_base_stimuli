@@ -6,32 +6,38 @@ output: github_document
 
 Repo for Many Babies study 1 stimuli
 
+## Experimental design
+
 ![](./img/exp_design.png)
 
-## Low complexity
+## Stimuli 
 
-### Squares
+Note: gifs render extremely slowly in github markdown. 
 
-<img src='./stim/low_complexity_static_square.png' width='350px'/>
+### Low complexity
 
-<img src='./stim/low_complexity_movement_square.gif' width='350px'/>
+#### Squares
 
-### Circles
+<img src='./stim/low_complexity_static_square.png' width='250px'/>
 
-<img src='./stim/low_complexity_static_circle.png' width='350px'/>
+<img src='./stim/low_complexity_movement_square.gif' width='250px'/>
 
-<img src='./stim/low_complexity_movement_circle.gif' width='350px'/>
+#### Circles
 
-## High complexity
+<img src='./stim/low_complexity_static_circle.png' width='250px'/>
 
-### Squares
+<img src='./stim/low_complexity_movement_circle.gif' width='250px'/>
 
-<img src='./stim/high_complexity_static_square.png' width='350px'/>
+### High complexity
 
-<img src='./stim/high_complexity_movement_square.gif' width='350px'/>
+#### Squares
 
-### Circles
+<img src='./stim/high_complexity_static_square.png' width='250px'/>
 
-<img src='./stim/high_complexity_static_circle.png' width='350px'/>
+<img src='./stim/high_complexity_movement_square.gif' width='250px'/>
 
-<img src='./stim/high_complexity_movement_circle.gif' width='350px'/>
+#### Circles
+
+<img src='./stim/high_complexity_static_circle.png' width='250px'/>
+
+<img src='./stim/high_complexity_movement_circle.gif' width='250px'/>
