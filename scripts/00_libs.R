@@ -6,5 +6,6 @@ library("tibble")
 library("dplyr")
 library("gganimate")
 library("av")
+library("readr")
 
 # -----------------------------------------------------------------------------
