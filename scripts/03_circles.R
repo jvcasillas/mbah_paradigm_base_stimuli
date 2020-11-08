@@ -1,6 +1,13 @@
 # Circles ---------------------------------------------------------------------
 #
-#
+# Last update: 20201108
+# - Generate circle stimuli with the following characteristics:
+#    - Low complexity (1 circle with expanding ring)
+#      - static
+#      - mobile
+#    - High complexity (many smaller exapnding rings)
+#      - static
+#      - mobile
 #
 # -----------------------------------------------------------------------------
 
@@ -24,7 +31,7 @@ low_complexity_static_circle <- make_circle(diameter = 0.75, npoints = 200) %>%
   add_row(x = 0, y = 0, position = "inner") %>% 
   ggplot(., aes(x = x, y = y, size = position)) + 
     geom_point(show.legend = F) + 
-    scale_size_manual(values = c(100, 3)) + 
+    scale_size_manual(values = c(50, 10)) + 
     coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
     theme_clear()
 
@@ -34,14 +41,14 @@ ggsave("low_complexity_static_circle.png", low_complexity_static_circle,
 
 # Expanding movement
 low_complexity_movement_circle <- bind_rows(
-    make_circle(diameter = 0.35, npoints = 200) %>% mutate(s = 1), 
+    make_circle(diameter = 0.15, npoints = 200) %>% mutate(s = 1), 
     make_circle(diameter = 0.75, npoints = 200) %>% mutate(s = 2)) %>% 
   mutate(position = "outer")  %>% 
   add_row(x = 0, y = 0, s = 1, position = "inner") %>% 
   add_row(x = 0, y = 0, s = 2, position = "inner") %>% 
   ggplot(., aes(x = x, y = y, size = position)) + 
     geom_point(show.legend = F) + 
-    scale_size_manual(values = c(100, 3)) + 
+    scale_size_manual(values = c(50, 10)) + 
     coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
     theme_clear() + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) + 
