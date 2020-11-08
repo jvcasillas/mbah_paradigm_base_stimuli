@@ -5,7 +5,7 @@
 #    - Low complexity (1 circle with expanding ring)
 #      - static
 #      - mobile
-#    - High complexity (many smaller exapnding rings)
+#    - High complexity (many smaller expanding rings)
 #      - static
 #      - mobile
 #
