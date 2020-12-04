@@ -30,14 +30,15 @@ circle_low_complexity_static <- function(color = 1) {
   static_circle_data <- tibble(
     x = c(0, 0, 0), 
     y = c(0, 0, 0), 
-    size = c(120, 20, 120), 
+    size = c(120, 35, 120), 
     color = c(c_picker(color)[1], c_picker(color)[2], c_picker(color)[2]),
-    shape = c(16, 21, 21))
+    shape = c(16, 21, 21), 
+    stroke = c(30, 20, 25.55))
   
   p_static_circle <- static_circle_data %>% 
   ggplot(., aes(x = x, y = y)) + 
-    geom_point(aes(size = size, color = color, shape = shape), 
-      show.legend = F, stroke = 30) +
+    geom_point(aes(size = size, color = color, shape = shape, stroke = stroke), 
+      show.legend = F) +
     scale_size_identity() + 
     scale_color_identity() + 
     scale_shape_identity() + 
@@ -283,3 +284,18 @@ anim_save(here("stim", "circle_high_complexity_movement_c4.gif"),
   high_complexity_movement_circle_c4_p)
 
 # -----------------------------------------------------------------------------
+
+
+
+
+
+
+# Area calculations
+red1 <- 75570
+red2 <- 656343
+
+blue1 <- 158025
+blue2 <- 573821
+
+total <- (red1 + red2) + (blue1 + blue2)
+diff <- (red1 + red2) - (blue1 + blue2)

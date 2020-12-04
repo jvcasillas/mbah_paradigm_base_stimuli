@@ -334,12 +334,12 @@ ggsave("square_high_complexity_static_c4.png", high_complexity_static_square_c4,
 
 # High complexity movement squares --------------------------------------------
 
-square_high_complexity_movement <- function(color = 1) {
+square_high_complexity_movement <- function(the_color = 1) {
   
   movement_square_data <- 
     read_csv(here("data", "high_complexity_movement_square.csv")) %>% 
-    mutate(color = if_else(color == "white", c_picker(pair = color)[1], 
-                                             c_picker(pair = color)[2]))
+    mutate(color = if_else(color == "white", c_picker(pair = the_color)[1], 
+                                             c_picker(pair = the_color)[2]))
 
   p_movement_square <- movement_square_data %>% 
   ggplot(., aes(x = x, y = y, color = color)) + 
@@ -352,13 +352,13 @@ square_high_complexity_movement <- function(color = 1) {
   
 }
 
-high_complexity_movement_square_c1 <- square_high_complexity_movement(color = 1) + 
+high_complexity_movement_square_c1 <- square_high_complexity_movement(the_color = 1) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
-high_complexity_movement_square_c2 <- square_high_complexity_movement(color = 2) + 
+high_complexity_movement_square_c2 <- square_high_complexity_movement(the_color = 2) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
-high_complexity_movement_square_c3 <- square_high_complexity_movement(color = 3) + 
+high_complexity_movement_square_c3 <- square_high_complexity_movement(the_color = 3) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
-high_complexity_movement_square_c4 <- square_high_complexity_movement(color = 4) + 
+high_complexity_movement_square_c4 <- square_high_complexity_movement(the_color = 4) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 
 # Animate
