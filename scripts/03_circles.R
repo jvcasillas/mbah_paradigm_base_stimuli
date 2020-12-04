@@ -150,104 +150,136 @@ anim_save(here("stim", "circle_low_complexity_movement_c4.gif"),
 
 
 
-# STOPED HERE... TODO... create high complexity images and gifs, resize squares
-
-
-
-low_complexity_movement_circle <- 
-  tribble(
-  ~"x", ~"y", ~"size", ~"color", ~"shape", ~"stroke", ~"s", 
-    0, 0,   0, c_picker(1)[1], 16, 15, 1, 
-    0, 0,  10, c_picker(1)[1], 16, 15, 2, 
-    0, 0,  30, c_picker(1)[1], 16, 15, 3, 
-    0, 0,   0, c_picker(1)[2], 21, 15, 1, 
-    0, 0,  20, c_picker(1)[2], 21, 15, 2, 
-    0, 0,  40, c_picker(1)[2], 21, 15, 3, 
-    0, 0,  20, c_picker(1)[1], 21, 15, 1, 
-    0, 0,  40, c_picker(1)[1], 21, 15, 2, 
-    0, 0,  60, c_picker(1)[1], 21, 15, 3, 
-    0, 0,  40, c_picker(1)[2], 21, 15, 1, 
-    0, 0,  60, c_picker(1)[2], 21, 15, 2, 
-    0, 0,  80, c_picker(1)[2], 21, 15, 3, 
-    0, 0,  60, c_picker(1)[1], 21, 15, 1, 
-    0, 0,  80, c_picker(1)[1], 21, 15, 2, 
-    0, 0, 100, c_picker(1)[1], 21, 15, 3, 
-    0, 0,  80, c_picker(1)[2], 21, 15, 1, 
-    0, 0, 100, c_picker(1)[2], 21, 15, 2, 
-    0, 0, 120, c_picker(1)[2], 21, 15, 3, 
-    0, 0, 100, c_picker(1)[1], 21, 15, 1, 
-    0, 0, 120, c_picker(1)[1], 21, 15, 2, 
-    0, 0, 140, c_picker(1)[1], 21,  0, 3, 
-    0, 0, 120, c_picker(1)[2], 21, 15, 1, 
-    0, 0, 140, c_picker(1)[2], 21,  0, 2, 
-    0, 0, 140, c_picker(1)[2], 21,  0, 3, 
-) %>% 
-  ggplot() + 
-    geom_point(aes(x = x, y = y, size = size, color = color, shape = shape, 
-      stroke = stroke), 
-      show.legend = F) +
-    scale_size_identity() + 
-    scale_color_identity() + 
-    scale_shape_identity() + 
-    coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
-    theme_clear() + 
-    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 
 
 
 
+# High complexity static circles ----------------------------------------------
 
-# High complexity circle -----------------------------------------------------
+circle_high_complexity_static <- function(color = 1) {
 
-# Static
-high_complexity_static_circle <- 
-  tibble(
+  static_circle_data <- tibble(
     x = c(0, 0, 0, 0, 0), 
     y = c(0, 0, 0, 0, 0), 
     size = c(140, seq(20, 140, length.out = 4)), 
-    ident = c("b", rep("a", 4))) %>% 
+    shape = c(16, rep(21, 4)), 
+    color = c(c_picker(pair = color)[1], c_picker(pair = color)[2], 
+              c_picker(pair = color)[2], c_picker(pair = color)[2], 
+              c_picker(pair = color)[2])) 
+
+  p_static_circle <- static_circle_data %>% 
   ggplot(., aes(x = x, y = y)) + 
-    geom_point(aes(size = size, shape = ident, color = ident), 
+    geom_point(aes(size = size, shape = shape, color = color), 
       show.legend = F, stroke = 15) + 
-    scale_shape_manual(values = c(21, 16)) + 
+    scale_shape_identity() + 
     scale_size_identity() + 
-    scale_color_manual(values = c(the_colors[2, 2] %>% pull, 
-                                  the_colors[2, 3] %>% pull)) + 
+    scale_color_identity() + 
     coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
     theme_clear()
 
+  return(p_static_circle)
+
+}
+
+circle_high_complexity_static_c1 <- circle_high_complexity_static(color = 1)
+circle_high_complexity_static_c2 <- circle_high_complexity_static(color = 2)
+circle_high_complexity_static_c3 <- circle_high_complexity_static(color = 3)
+circle_high_complexity_static_c4 <- circle_high_complexity_static(color = 4)
+
 # Save as .png
-ggsave("high_complexity_static_circle.png", high_complexity_static_circle, 
+ggsave("circle_high_complexity_static_c1.png", circle_high_complexity_static_c1, 
   path = here("stim"), units = "in", height = 5, width = 5)
-
-# Expanding movement
-
-high_complexity_movement_circle <-
-  read_csv(here("data", "high_complexity_movement_circle.csv")) %>% 
-  ggplot(., aes(x = x, y = y)) + 
-    geom_point(aes(size = size, shape = color, color = color), 
-      show.legend = F, stroke = 15) + 
-    scale_shape_manual(values = c(21, 16)) + 
-    scale_size_identity() + 
-    scale_color_manual(values = c(the_colors[2, 2] %>% pull, 
-                                  the_colors[2, 3] %>% pull)) + 
-    coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
-    theme_clear() + 
-    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F)
-
-# Animate
-high_complexity_movement_circle_p <- animate(high_complexity_movement_circle, 
-                              fps = 100, duration = 1.5, 
-                              device = "png")
-
-# Save as .gif
-anim_save(here("stim", "high_complexity_movement_circle.gif"), 
-  high_complexity_movement_circle_p)
+ggsave("circle_high_complexity_static_c2.png", circle_high_complexity_static_c2, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_high_complexity_static_c3.png", circle_high_complexity_static_c3, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_high_complexity_static_c4.png", circle_high_complexity_static_c4, 
+  path = here("stim"), units = "in", height = 5, width = 5)
 
 # -----------------------------------------------------------------------------
 
 
 
 
+# High complexity mobile circles ----------------------------------------------
 
+circle_high_complexity_movement <- function(color = 1) {
 
+  movement_circle_data <- tribble(
+  ~"x", ~"y", ~"size", ~"color", ~"shape", ~"stroke", ~"s", 
+    0, 0,   0, c_picker(color)[1], 21, 15, 1, 
+    0, 0,   0, c_picker(color)[2], 21, 15, 1, 
+    0, 0,   0, c_picker(color)[1], 21, 15, 1, 
+    0, 0,  20, c_picker(color)[2], 21, 15, 1, 
+    0, 0,  40, c_picker(color)[1], 21, 15, 1, 
+    0, 0,  60, c_picker(color)[2], 21, 15, 1, 
+    0, 0,  80, c_picker(color)[1], 21, 15, 1, 
+    0, 0, 100, c_picker(color)[2], 21, 15, 1, 
+    0, 0, 120, c_picker(color)[1], 21, 15, 1, 
+    0, 0, 140, c_picker(color)[2], 21, 15, 1, 
+
+    0, 0,   0, c_picker(color)[1], 21, 15, 2, 
+    0, 0,   0, c_picker(color)[2], 21, 15, 2, 
+    0, 0,  20, c_picker(color)[1], 21, 15, 2, 
+    0, 0,  40, c_picker(color)[2], 21, 15, 2, 
+    0, 0,  60, c_picker(color)[1], 21, 15, 2, 
+    0, 0,  80, c_picker(color)[2], 21, 15, 2, 
+    0, 0, 100, c_picker(color)[1], 21, 15, 2, 
+    0, 0, 120, c_picker(color)[2], 21, 15, 2, 
+    0, 0, 140, c_picker(color)[1], 21, 15, 2, 
+    0, 0, 160, c_picker(color)[2], 21,  0, 2, 
+
+    0, 0,   0, c_picker(color)[1], 21, 15, 3, 
+    0, 0,  20, c_picker(color)[2], 21, 15, 3, 
+    0, 0,  40, c_picker(color)[1], 21, 15, 3, 
+    0, 0,  60, c_picker(color)[2], 21, 15, 3, 
+    0, 0,  80, c_picker(color)[1], 21, 15, 3, 
+    0, 0, 100, c_picker(color)[2], 21, 15, 3, 
+    0, 0, 120, c_picker(color)[1], 21, 15, 3, 
+    0, 0, 140, c_picker(color)[2], 21, 15, 3, 
+    0, 0, 160, c_picker(color)[1], 21,  0, 3, 
+    0, 0, 160, c_picker(color)[2], 21,  0, 3, ) 
+
+  p_movement_circle <- movement_circle_data %>% 
+  ggplot() + 
+    geom_point(aes(x = x, y = y, size = size, color = color, shape = shape, 
+      stroke = stroke), show.legend = F) +
+    scale_size_identity() + 
+    scale_color_identity() + 
+    scale_shape_identity() + 
+    coord_cartesian(xlim = c(-0.4, 0.4), ylim = c(-0.4, 0.4), expand = F) + 
+    theme_clear() 
+  
+  return(p_movement_circle)
+}
+
+high_complexity_movement_circle_c1 <- circle_high_complexity_movement(color = 1) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+high_complexity_movement_circle_c2 <- circle_high_complexity_movement(color = 2) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+high_complexity_movement_circle_c3 <- circle_high_complexity_movement(color = 3) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+high_complexity_movement_circle_c4 <- circle_high_complexity_movement(color = 4) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+
+# Animate
+high_complexity_movement_circle_c1_p <- 
+  animate(high_complexity_movement_circle_c1, fps = 100, duration = 1.5, device = "png")
+high_complexity_movement_circle_c2_p <- 
+  animate(high_complexity_movement_circle_c2, fps = 100, duration = 1.5, device = "png")
+high_complexity_movement_circle_c3_p <- 
+  animate(high_complexity_movement_circle_c3, fps = 100, duration = 1.5, device = "png")
+high_complexity_movement_circle_c4_p <- 
+  animate(high_complexity_movement_circle_c4, fps = 100, duration = 1.5, device = "png")
+
+# Save as .gif
+anim_save(here("stim", "circle_high_complexity_movement_c1.gif"), 
+  high_complexity_movement_circle_c1_p)
+anim_save(here("stim", "circle_high_complexity_movement_c2.gif"), 
+  high_complexity_movement_circle_c2_p)
+anim_save(here("stim", "circle_high_complexity_movement_c3.gif"), 
+  high_complexity_movement_circle_c3_p)
+anim_save(here("stim", "circle_high_complexity_movement_c4.gif"), 
+  high_complexity_movement_circle_c4_p)
+
+# -----------------------------------------------------------------------------
