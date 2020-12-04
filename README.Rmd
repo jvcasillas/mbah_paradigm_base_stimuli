@@ -18,29 +18,29 @@ Note: gifs render extremely slowly in github markdown.
 
 #### Squares
 
-<img src='./stim/low_complexity_static_square.png' width='250px'/>
+<img src='./stim/square_low_complexity_static_c1.png' width='250px'/>
 
-<img src='./stim/low_complexity_movement_square.gif' width='250px'/>
+<img src='./stim/square_low_complexity_movement_c1.gif' width='250px'/>
 
 #### Circles
 
-<img src='./stim/low_complexity_static_circle.png' width='250px'/>
+<img src='./stim/circle_low_complexity_static_c1.png' width='250px'/>
 
-<img src='./stim/low_complexity_movement_circle.gif' width='250px'/>
+<img src='./stim/circle_low_complexity_movement_c1.gif' width='250px'/>
 
 ### High complexity
 
 #### Squares
 
-<img src='./stim/high_complexity_static_square.png' width='250px'/>
+<img src='./stim/square_high_complexity_static_c1.png' width='250px'/>
 
-<img src='./stim/high_complexity_movement_square.gif' width='250px'/>
+<img src='./stim/square_high_complexity_movement_c1.gif' width='250px'/>
 
 #### Circles
 
-<img src='./stim/high_complexity_static_circle.png' width='250px'/>
+<img src='./stim/circle_high_complexity_static_c1.png' width='250px'/>
 
-<img src='./stim/high_complexity_movement_circle.gif' width='250px'/>
+<img src='./stim/circle_high_complexity_movement_c1.gif' width='250px'/>
 
 
 ## Colors
