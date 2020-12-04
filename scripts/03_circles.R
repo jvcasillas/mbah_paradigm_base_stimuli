@@ -291,6 +291,8 @@ anim_save(here("stim", "circle_high_complexity_movement_c4.gif"),
 
 
 # Area calculations
+
+# Low complex
 red1 <- 75570
 red2 <- 656343
 
@@ -299,3 +301,14 @@ blue2 <- 573821
 
 total <- (red1 + red2) + (blue1 + blue2)
 diff <- (red1 + red2) - (blue1 + blue2)
+
+# high complex
+red1  <- 24528
+red2  <- 123145
+red3  <- 221700
+red4  <- 320387
+
+blue1 <- 
+blue2 <- 
+blue3 <- 
+blue4 <- 
