@@ -119,7 +119,7 @@ low_complexity_movement_circle_c4 <- circle_low_complexity_movement(color = 4) +
 
 # Animate
 low_complexity_movement_circle_c1_p <- 
-  animate(low_complexity_movement_circle_c1, fps = 100, duration = 1.5, device = "png")
+  animate(low_complexity_movement_circle_c1, fps = 100, duration = 1.5, device = av_renderer())
 low_complexity_movement_circle_c2_p <- 
   animate(low_complexity_movement_circle_c2, fps = 100, duration = 1.5, device = "png")
 low_complexity_movement_circle_c3_p <- 
@@ -136,6 +136,18 @@ anim_save(here("stim", "circle_low_complexity_movement_c3.gif"),
   low_complexity_movement_circle_c3_p)
 anim_save(here("stim", "circle_low_complexity_movement_c4.gif"), 
   low_complexity_movement_circle_c4_p)
+
+
+#p <- ggplot(airquality, aes(Day, Temp)) + 
+#    geom_line(size = 2, colour = 'steelblue') + 
+#    transition_states(Month, 4, 1) + 
+#    shadow_mark(size = 1, colour = 'grey')
+
+#b <- animate(p, duration = 20, fps = 20, renderer = av_renderer())
+#anim_save("output.mp4", b)
+
+
+
 
 # -----------------------------------------------------------------------------
 
