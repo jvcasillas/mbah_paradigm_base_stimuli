@@ -26,8 +26,8 @@
     <Param name="Use version" updates="None" val="" valType="str"/>
     <Param name="Window size (pixels)" updates="None" val="[1920, 1200]" valType="code"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
-    <Param name="color" updates="None" val="$[0,0,0]" valType="str"/>
-    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="color" updates="None" val="#A19C99" valType="str"/>
+    <Param name="colorSpace" updates="None" val="hex" valType="str"/>
     <Param name="expName" updates="None" val="mbah_test" valType="str"/>
     <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
     <Param name="logging level" updates="None" val="debug" valType="code"/>
