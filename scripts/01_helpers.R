@@ -19,7 +19,7 @@ source(here::here("scripts", "00_libs.R"))
 
 # Download colors
 if (F) {
-  file_url <- "https://raw.githubusercontent.com/jvcasillas/MBAH_ColorSwatches/master/MBAH_polarLUV-hex_L_C.csv"
+  file_url <- "https://raw.githubusercontent.com/jvcasillas/MBAH_ColorSwatches/master/MBAH_colors.csv"
   download.file(file_url, destfile = here("data", "colors.csv"), method = "curl")
 }
 
