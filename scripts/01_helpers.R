@@ -19,7 +19,7 @@ source(here::here("scripts", "00_libs.R"))
 
 # Download colors
 if (F) {
-  file_url <- "https://raw.githubusercontent.com/jvcasillas/MBAH_ColorSwatches/master/MBAH_polarLUV-hex_L_C.csv"
+  file_url <- "https://raw.githubusercontent.com/jvcasillas/MBAH_ColorSwatches/master/MBAH_colors.csv"
   download.file(file_url, destfile = here("data", "colors.csv"), method = "curl")
 }
 
@@ -46,7 +46,7 @@ make_circle <- function(center = c(0, 0), diameter = 1, npoints = 100){
 }
 
 # ggplot2 theme
-theme_clear <- function(bg_color = the_colors[1, 2] %>% pull) {
+theme_clear <- function(bg_color = the_colors[7, 2] %>% pull) {
   list(
     theme_void(), 
     theme(panel.background = element_rect(fill = bg_color, colour = bg_color))

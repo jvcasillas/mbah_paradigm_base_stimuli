@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.2.8),
-    on Fri Dec 18 08:23:45 2020
+    on Tue Jan 19 09:29:58 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -65,7 +65,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Setup the Window
 win = visual.Window(
-    size=[1920, 1200], fullscr=False, screen=0, 
+    size=[1024, 640], fullscr=False, screen=0, 
     winType='pyglet', allowGUI=True, allowStencil=False,
     monitor='testMonitor', color='#A19C99', colorSpace='hex',
     blendMode='avg', useFBO=True, 
@@ -103,9 +103,9 @@ mouse = event.Mouse(win=win)
 x, y = [None, None]
 mouse.mouseClock = core.Clock()
 text = visual.TextStim(win=win, name='text',
-    text='Static',
+    text='default text',
     font='Arial',
-    pos=(0, 0.4), height=0.1, wrapWidth=None, ori=0, 
+    pos=(0, 0.4), height=0.07, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-4.0);
@@ -117,12 +117,12 @@ mouse_2 = event.Mouse(win=win)
 x, y = [None, None]
 mouse_2.mouseClock = core.Clock()
 text_2 = visual.TextStim(win=win, name='text_2',
-    text='Movement',
+    text='default text',
     font='Arial',
-    pos=(0, 0.4), height=0.1, wrapWidth=None, ori=0, 
+    pos=(0, 0.4), height=0.07, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-4.0);
+    depth=-3.0);
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -157,6 +157,7 @@ for thisTrial in trials:
     _key_resp_allKeys = []
     # setup some python lists for storing info about the mouse
     gotValidClick = False  # until a click is received
+    text.setText(name)
     # keep track of which components have finished
     staticComponents = [image_left_trial, image_right_trial, key_resp, mouse, text]
     for thisComponent in staticComponents:
@@ -308,25 +309,19 @@ for thisTrial_2 in trials_2:
         win=win, name='movie_left_trial',
         noAudio = False,
         filename=image_left,
-        ori=0, pos=(-0.4, 0), opacity=1,
+        ori=0, pos=(0, 0), opacity=1,
         loop=True,
+        size=size,
         depth=0.0,
-        )
-    movie_right_trial = visual.MovieStim3(
-        win=win, name='movie_right_trial',
-        noAudio = False,
-        filename=image_right,
-        ori=0, pos=(0.4, 0), opacity=1,
-        loop=True,
-        depth=-1.0,
         )
     key_resp_2.keys = []
     key_resp_2.rt = []
     _key_resp_2_allKeys = []
     # setup some python lists for storing info about the mouse_2
     gotValidClick = False  # until a click is received
+    text_2.setText(name)
     # keep track of which components have finished
-    movementComponents = [movie_left_trial, movie_right_trial, key_resp_2, mouse_2, text_2]
+    movementComponents = [movie_left_trial, key_resp_2, mouse_2, text_2]
     for thisComponent in movementComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -357,15 +352,6 @@ for thisTrial_2 in trials_2:
             movie_left_trial.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(movie_left_trial, 'tStartRefresh')  # time at next scr refresh
             movie_left_trial.setAutoDraw(True)
-        
-        # *movie_right_trial* updates
-        if movie_right_trial.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            movie_right_trial.frameNStart = frameN  # exact frame index
-            movie_right_trial.tStart = t  # local t and not account for scr refresh
-            movie_right_trial.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(movie_right_trial, 'tStartRefresh')  # time at next scr refresh
-            movie_right_trial.setAutoDraw(True)
         
         # *key_resp_2* updates
         waitOnFlip = False
@@ -437,7 +423,6 @@ for thisTrial_2 in trials_2:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     movie_left_trial.stop()
-    movie_right_trial.stop()
     # store data for trials_2 (TrialHandler)
     x, y = mouse_2.getPos()
     buttons = mouse_2.getPressed()

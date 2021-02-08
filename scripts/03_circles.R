@@ -52,6 +52,9 @@ circle_low_complexity_static_c1 <- circle_low_complexity_static(color = 1)
 circle_low_complexity_static_c2 <- circle_low_complexity_static(color = 2)
 circle_low_complexity_static_c3 <- circle_low_complexity_static(color = 3)
 circle_low_complexity_static_c4 <- circle_low_complexity_static(color = 4)
+circle_low_complexity_static_c5 <- circle_low_complexity_static(color = 5)
+circle_low_complexity_static_c6 <- circle_low_complexity_static(color = 6)
+
 
 # Save as .png
 ggsave("circle_low_complexity_static_c1.png", circle_low_complexity_static_c1, 
@@ -61,6 +64,10 @@ ggsave("circle_low_complexity_static_c2.png", circle_low_complexity_static_c2,
 ggsave("circle_low_complexity_static_c3.png", circle_low_complexity_static_c3, 
   path = here("stim"), units = "in", height = 5, width = 5)
 ggsave("circle_low_complexity_static_c4.png", circle_low_complexity_static_c4, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_low_complexity_static_c5.png", circle_low_complexity_static_c5, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_low_complexity_static_c6.png", circle_low_complexity_static_c6, 
   path = here("stim"), units = "in", height = 5, width = 5)
 
 # -----------------------------------------------------------------------------
@@ -116,16 +123,26 @@ low_complexity_movement_circle_c3 <- circle_low_complexity_movement(color = 3) +
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 low_complexity_movement_circle_c4 <- circle_low_complexity_movement(color = 4) + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+low_complexity_movement_circle_c5 <- circle_low_complexity_movement(color = 5) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+low_complexity_movement_circle_c6 <- circle_low_complexity_movement(color = 6) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+
 
 # Animate
 low_complexity_movement_circle_c1_p <- 
-  animate(low_complexity_movement_circle_c1, fps = 100, duration = 1.5, device = av_renderer())
+  animate(low_complexity_movement_circle_c1, fps = 100, duration = 1.5, device = "png")
 low_complexity_movement_circle_c2_p <- 
   animate(low_complexity_movement_circle_c2, fps = 100, duration = 1.5, device = "png")
 low_complexity_movement_circle_c3_p <- 
   animate(low_complexity_movement_circle_c3, fps = 100, duration = 1.5, device = "png")
 low_complexity_movement_circle_c4_p <- 
   animate(low_complexity_movement_circle_c4, fps = 100, duration = 1.5, device = "png")
+low_complexity_movement_circle_c5_p <- 
+  animate(low_complexity_movement_circle_c5, fps = 100, duration = 1.5, device = "png")
+low_complexity_movement_circle_c6_p <- 
+  animate(low_complexity_movement_circle_c6, fps = 100, duration = 1.5, device = "png")
+
 
 # Save as .gif
 anim_save(here("stim", "circle_low_complexity_movement_c1.gif"), 
@@ -136,6 +153,10 @@ anim_save(here("stim", "circle_low_complexity_movement_c3.gif"),
   low_complexity_movement_circle_c3_p)
 anim_save(here("stim", "circle_low_complexity_movement_c4.gif"), 
   low_complexity_movement_circle_c4_p)
+anim_save(here("stim", "circle_low_complexity_movement_c5.gif"), 
+  low_complexity_movement_circle_c5_p)
+anim_save(here("stim", "circle_low_complexity_movement_c6.gif"), 
+  low_complexity_movement_circle_c6_p)
 
 
 #p <- ggplot(airquality, aes(Day, Temp)) + 
@@ -198,6 +219,8 @@ circle_high_complexity_static_c1 <- circle_high_complexity_static(color = 1)
 circle_high_complexity_static_c2 <- circle_high_complexity_static(color = 2)
 circle_high_complexity_static_c3 <- circle_high_complexity_static(color = 3)
 circle_high_complexity_static_c4 <- circle_high_complexity_static(color = 4)
+circle_high_complexity_static_c5 <- circle_high_complexity_static(color = 5)
+circle_high_complexity_static_c6 <- circle_high_complexity_static(color = 6)
 
 # Save as .png
 ggsave("circle_high_complexity_static_c1.png", circle_high_complexity_static_c1, 
@@ -207,6 +230,10 @@ ggsave("circle_high_complexity_static_c2.png", circle_high_complexity_static_c2,
 ggsave("circle_high_complexity_static_c3.png", circle_high_complexity_static_c3, 
   path = here("stim"), units = "in", height = 5, width = 5)
 ggsave("circle_high_complexity_static_c4.png", circle_high_complexity_static_c4, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_high_complexity_static_c5.png", circle_high_complexity_static_c5, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("circle_high_complexity_static_c6.png", circle_high_complexity_static_c6, 
   path = here("stim"), units = "in", height = 5, width = 5)
 
 # -----------------------------------------------------------------------------
@@ -274,6 +301,10 @@ high_complexity_movement_circle_c3 <- circle_high_complexity_movement(color = 3)
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 high_complexity_movement_circle_c4 <- circle_high_complexity_movement(color = 4) + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+high_complexity_movement_circle_c5 <- circle_high_complexity_movement(color = 5) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
+high_complexity_movement_circle_c6 <- circle_high_complexity_movement(color = 6) + 
+    transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 
 # Animate
 high_complexity_movement_circle_c1_p <- 
@@ -284,6 +315,10 @@ high_complexity_movement_circle_c3_p <-
   animate(high_complexity_movement_circle_c3, fps = 100, duration = 1.5, device = "png")
 high_complexity_movement_circle_c4_p <- 
   animate(high_complexity_movement_circle_c4, fps = 100, duration = 1.5, device = "png")
+high_complexity_movement_circle_c5_p <- 
+  animate(high_complexity_movement_circle_c5, fps = 100, duration = 1.5, device = "png")
+high_complexity_movement_circle_c6_p <- 
+  animate(high_complexity_movement_circle_c6, fps = 100, duration = 1.5, device = "png")
 
 # Save as .gif
 anim_save(here("stim", "circle_high_complexity_movement_c1.gif"), 
@@ -294,6 +329,10 @@ anim_save(here("stim", "circle_high_complexity_movement_c3.gif"),
   high_complexity_movement_circle_c3_p)
 anim_save(here("stim", "circle_high_complexity_movement_c4.gif"), 
   high_complexity_movement_circle_c4_p)
+anim_save(here("stim", "circle_high_complexity_movement_c5.gif"), 
+  high_complexity_movement_circle_c5_p)
+anim_save(here("stim", "circle_high_complexity_movement_c6.gif"), 
+  high_complexity_movement_circle_c6_p)
 
 # -----------------------------------------------------------------------------
 
