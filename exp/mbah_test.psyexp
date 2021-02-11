@@ -24,7 +24,7 @@
     <Param name="Show mouse" updates="None" val="False" valType="bool"/>
     <Param name="Units" updates="None" val="height" valType="str"/>
     <Param name="Use version" updates="None" val="" valType="str"/>
-    <Param name="Window size (pixels)" updates="None" val="[1920, 1200]" valType="code"/>
+    <Param name="Window size (pixels)" updates="None" val="[1024, 640]" valType="code"/>
     <Param name="blendMode" updates="None" val="avg" valType="str"/>
     <Param name="color" updates="None" val="#A19C99" valType="str"/>
     <Param name="colorSpace" updates="None" val="hex" valType="str"/>
@@ -45,31 +45,9 @@
         <Param name="name" updates="None" val="movie_left_trial" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(-0.4, 0)" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-      </MovieComponent>
-      <MovieComponent name="movie_right_trial">
-        <Param name="No audio" updates="None" val="False" valType="bool"/>
-        <Param name="backend" updates="None" val="moviepy" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
-        <Param name="loop" updates="None" val="True" valType="bool"/>
-        <Param name="movie" updates="set every repeat" val="$image_right" valType="str"/>
-        <Param name="name" updates="None" val="movie_right_trial" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="set every repeat" val="(0.4, 0)" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="" valType="code"/>
+        <Param name="size" updates="set every repeat" val="$size" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -122,7 +100,7 @@
         <Param name="flip" updates="constant" val="" valType="str"/>
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="code"/>
         <Param name="name" updates="None" val="text_2" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
@@ -134,7 +112,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Movement" valType="extendedStr"/>
+        <Param name="text" updates="set every repeat" val="$name" valType="extendedStr"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -234,7 +212,7 @@
         <Param name="flip" updates="constant" val="" valType="str"/>
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="letterHeight" updates="constant" val="0.07" valType="code"/>
         <Param name="name" updates="None" val="text" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
@@ -246,7 +224,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Static" valType="extendedStr"/>
+        <Param name="text" updates="set every repeat" val="$name" valType="extendedStr"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
@@ -255,7 +233,7 @@
   <Flow>
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="0:8" valType="str"/>
-      <Param name="conditions" updates="None" val="[OrderedDict([('image_left', '../stim/square_low_complexity_static_c1.png'), ('image_right', '../stim/square_low_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/square_low_complexity_static_c3.png'), ('image_right', '../stim/square_low_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c1.png'), ('image_right', '../stim/circle_low_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c3.png'), ('image_right', '../stim/circle_low_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c1.png'), ('image_right', '../stim/square_high_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c3.png'), ('image_right', '../stim/square_high_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c1.png'), ('image_right', '../stim/circle_high_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c3.png'), ('image_right', '../stim/circle_high_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')])]" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('image_left', '../stim/square_low_complexity_static_c1.png'), ('image_right', '../stim/square_low_complexity_static_c2.png'), ('name', 'square, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_low_complexity_static_c3.png'), ('image_right', '../stim/square_low_complexity_static_c4.png'), ('name', 'square, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c1.png'), ('image_right', '../stim/circle_low_complexity_static_c2.png'), ('name', 'circle, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c3.png'), ('image_right', '../stim/circle_low_complexity_static_c4.png'), ('name', 'circle, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c1.png'), ('image_right', '../stim/square_high_complexity_static_c2.png'), ('name', 'square, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c3.png'), ('image_right', '../stim/square_high_complexity_static_c4.png'), ('name', 'square, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c1.png'), ('image_right', '../stim/circle_high_complexity_static_c2.png'), ('name', 'cirlce, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c3.png'), ('image_right', '../stim/circle_high_complexity_static_c4.png'), ('name', 'cirlce, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'circle, low complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/circle_low_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'circle, low complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/square_low_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'square, low complexity, movement'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_low_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'square, low complexity, movement'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'circle, high complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'circle, high complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/square_high_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'square, high complexity, movement'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_high_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'square, high complexity, movement'), ('size', [300, 300])])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="trials.csv" valType="str"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
@@ -268,7 +246,7 @@
     <LoopTerminator name="trials"/>
     <LoopInitiator loopType="TrialHandler" name="trials_2">
       <Param name="Selected rows" updates="None" val="8:16" valType="str"/>
-      <Param name="conditions" updates="None" val="[OrderedDict([('image_left', '../stim/square_low_complexity_static_c1.png'), ('image_right', '../stim/square_low_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/square_low_complexity_static_c3.png'), ('image_right', '../stim/square_low_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c1.png'), ('image_right', '../stim/circle_low_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c3.png'), ('image_right', '../stim/circle_low_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c1.png'), ('image_right', '../stim/square_high_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c3.png'), ('image_right', '../stim/square_high_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c1.png'), ('image_right', '../stim/circle_high_complexity_static_c2.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c3.png'), ('image_right', '../stim/circle_high_complexity_static_c4.png')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', '../stim/circle_high_complexity_movement_c1.mp4')])]" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('image_left', '../stim/square_low_complexity_static_c1.png'), ('image_right', '../stim/square_low_complexity_static_c2.png'), ('name', 'square, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_low_complexity_static_c3.png'), ('image_right', '../stim/square_low_complexity_static_c4.png'), ('name', 'square, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c1.png'), ('image_right', '../stim/circle_low_complexity_static_c2.png'), ('name', 'circle, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_static_c3.png'), ('image_right', '../stim/circle_low_complexity_static_c4.png'), ('name', 'circle, low complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c1.png'), ('image_right', '../stim/square_high_complexity_static_c2.png'), ('name', 'square, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/square_high_complexity_static_c3.png'), ('image_right', '../stim/square_high_complexity_static_c4.png'), ('name', 'square, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c1.png'), ('image_right', '../stim/circle_high_complexity_static_c2.png'), ('name', 'cirlce, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_high_complexity_static_c3.png'), ('image_right', '../stim/circle_high_complexity_static_c4.png'), ('name', 'cirlce, high complexity, static'), ('size', [300, 300])]), OrderedDict([('image_left', '../stim/circle_low_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'circle, low complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/circle_low_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'circle, low complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/square_low_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'square, low complexity, movement'), ('size', [250, 250])]), OrderedDict([('image_left', '../stim/square_low_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'square, low complexity, movement'), ('size', [250, 250])]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'circle, high complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/circle_high_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'circle, high complexity, movement'), ('size', [350, 350])]), OrderedDict([('image_left', '../stim/square_high_complexity_movement_c1.mp4'), ('image_right', None), ('name', 'square, high complexity, movement'), ('size', [250, 250])]), OrderedDict([('image_left', '../stim/square_high_complexity_movement_c2.mp4'), ('image_right', None), ('name', 'square, high complexity, movement'), ('size', [250, 250])])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="trials.csv" valType="str"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
