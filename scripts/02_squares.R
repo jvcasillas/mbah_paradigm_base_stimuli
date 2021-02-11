@@ -271,6 +271,8 @@ low_complexity_movement_square_c6_p <- animate(
   low_complexity_movement_square_c6, fps = 100, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150)
 
+animate(nations_plot, renderer = ffmpeg_renderer(), width = 800, height = 450)
+anim_save("nations.mp4")
 
 # Save as gif
 anim_save(here("stim", "square_low_complexity_movement_c1.gif"), 
@@ -431,3 +433,12 @@ anim_save(here("stim", "square_high_complexity_movement_c6.gif"),
   high_complexity_movement_square_c6_p)
 
 # -----------------------------------------------------------------------------
+
+
+
+# save to mp4 attempts (not working)
+# low_complexity_movement_square_c1_p <- animate(fps = 100, duration = 2.0, 
+#   units = "in", height = 5, width = 5, res = 150, 
+#   low_complexity_movement_square_c1, renderer = ffmpeg_renderer())
+# anim_save(here("stim", "square_low_complexity_movement_c1.mp4"), 
+#   low_complexity_movement_square_c1_p)
