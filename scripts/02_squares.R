@@ -118,7 +118,7 @@ square_low_complexity_static_c3 <- square_low_complexity_static(color = 3)
 square_low_complexity_static_c4 <- square_low_complexity_static(color = 4)
 square_low_complexity_static_c5 <- square_low_complexity_static(color = 5)
 square_low_complexity_static_c6 <- square_low_complexity_static(color = 6)
-
+square_low_complexity_static_c8 <- square_low_complexity_static(color = 8)
 
 # Save as .png
 ggsave("square_low_complexity_static_c1.png", square_low_complexity_static_c1, 
@@ -132,6 +132,8 @@ ggsave("square_low_complexity_static_c4.png", square_low_complexity_static_c4,
 ggsave("square_low_complexity_static_c5.png", square_low_complexity_static_c5, 
   path = here("stim"), units = "in", height = 5, width = 5)
 ggsave("square_low_complexity_static_c6.png", square_low_complexity_static_c6, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("square_low_complexity_static_c8.png", square_low_complexity_static_c8, 
   path = here("stim"), units = "in", height = 5, width = 5)
 
 # -----------------------------------------------------------------------------
@@ -249,6 +251,8 @@ low_complexity_movement_square_c5 <- square_low_complexity_movement(color = 5) +
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 low_complexity_movement_square_c6 <- square_low_complexity_movement(color = 6) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
+low_complexity_movement_square_c8 <- square_low_complexity_movement(color = 8) + 
+  transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 
 
 # Animate
@@ -270,9 +274,11 @@ low_complexity_movement_square_c5_p <- animate(
 low_complexity_movement_square_c6_p <- animate(
   low_complexity_movement_square_c6, fps = 100, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150)
+low_complexity_movement_square_c8_p <- animate(
+  low_complexity_movement_square_c8, fps = 100, duration = 2.0, device = "png", 
+  units = "in", height = 5, width = 5, res = 150)
 
-animate(nations_plot, renderer = ffmpeg_renderer(), width = 800, height = 450)
-anim_save("nations.mp4")
+
 
 # Save as gif
 anim_save(here("stim", "square_low_complexity_movement_c1.gif"), 
@@ -287,6 +293,8 @@ anim_save(here("stim", "square_low_complexity_movement_c5.gif"),
   low_complexity_movement_square_c5_p)
 anim_save(here("stim", "square_low_complexity_movement_c6.gif"), 
   low_complexity_movement_square_c6_p)
+anim_save(here("stim", "square_low_complexity_movement_c8.gif"), 
+  low_complexity_movement_square_c8_p)
 
 # -----------------------------------------------------------------------------
 
@@ -338,6 +346,7 @@ high_complexity_static_square_c3 <- square_high_complexity_static(color = 3)
 high_complexity_static_square_c4 <- square_high_complexity_static(color = 4)
 high_complexity_static_square_c5 <- square_high_complexity_static(color = 5)
 high_complexity_static_square_c6 <- square_high_complexity_static(color = 6)
+high_complexity_static_square_c8 <- square_high_complexity_static(color = 8)
 
 
 # Save as .png
@@ -352,6 +361,8 @@ ggsave("square_high_complexity_static_c4.png", high_complexity_static_square_c4,
 ggsave("square_high_complexity_static_c5.png", high_complexity_static_square_c5, 
   path = here("stim"), units = "in", height = 5, width = 5)
 ggsave("square_high_complexity_static_c6.png", high_complexity_static_square_c6, 
+  path = here("stim"), units = "in", height = 5, width = 5)
+ggsave("square_high_complexity_static_c8.png", high_complexity_static_square_c8, 
   path = here("stim"), units = "in", height = 5, width = 5)
 
 # -----------------------------------------------------------------------------
@@ -396,6 +407,8 @@ high_complexity_movement_square_c5 <- square_high_complexity_movement(the_color 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 high_complexity_movement_square_c6 <- square_high_complexity_movement(the_color = 6) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
+high_complexity_movement_square_c8 <- square_high_complexity_movement(the_color = 8) + 
+  transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 
 
 # Animate
@@ -417,6 +430,9 @@ high_complexity_movement_square_c5_p <- animate(
 high_complexity_movement_square_c6_p <- animate(
   high_complexity_movement_square_c6, fps = 100, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150)
+high_complexity_movement_square_c8_p <- animate(
+  high_complexity_movement_square_c8, fps = 100, duration = 2.0, device = "png", 
+  units = "in", height = 5, width = 5, res = 150)
 
 # Save as .gif
 anim_save(here("stim", "square_high_complexity_movement_c1.gif"), 
@@ -431,6 +447,8 @@ anim_save(here("stim", "square_high_complexity_movement_c5.gif"),
   high_complexity_movement_square_c5_p)
 anim_save(here("stim", "square_high_complexity_movement_c6.gif"), 
   high_complexity_movement_square_c6_p)
+anim_save(here("stim", "square_high_complexity_movement_c8.gif"), 
+  high_complexity_movement_square_c8_p)
 
 # -----------------------------------------------------------------------------
 
