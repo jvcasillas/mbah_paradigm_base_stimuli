@@ -46,7 +46,7 @@ make_circle <- function(center = c(0, 0), diameter = 1, npoints = 100){
 }
 
 # ggplot2 theme
-theme_clear <- function(bg_color = the_colors[7, 2] %>% pull) {
+theme_clear <- function(bg_color = the_colors[9, 2] %>% pull) {
   list(
     theme_void(), 
     theme(panel.background = element_rect(fill = bg_color, colour = bg_color))
