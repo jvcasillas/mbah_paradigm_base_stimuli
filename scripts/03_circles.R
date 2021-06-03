@@ -137,25 +137,25 @@ low_complexity_movement_circle_c8 <- circle_low_complexity_movement(color = 8) +
 # Animate
 low_complexity_movement_circle_c1_p <- 
   animate(low_complexity_movement_circle_c1, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c2_p <- 
   animate(low_complexity_movement_circle_c2, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c3_p <- 
   animate(low_complexity_movement_circle_c3, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c4_p <- 
   animate(low_complexity_movement_circle_c4, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c5_p <- 
   animate(low_complexity_movement_circle_c5, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c6_p <- 
   animate(low_complexity_movement_circle_c6, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 low_complexity_movement_circle_c8_p <- 
   animate(low_complexity_movement_circle_c8, fps = 100, duration = 2.0,
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 
 
 # Save as .gif
@@ -330,25 +330,25 @@ high_complexity_movement_circle_c8 <- circle_high_complexity_movement(color = 8)
 # Animate
 high_complexity_movement_circle_c1_p <- 
   animate(high_complexity_movement_circle_c1, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c2_p <- 
   animate(high_complexity_movement_circle_c2, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c3_p <- 
   animate(high_complexity_movement_circle_c3, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c4_p <- 
   animate(high_complexity_movement_circle_c4, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c5_p <- 
   animate(high_complexity_movement_circle_c5, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c6_p <- 
   animate(high_complexity_movement_circle_c6, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 high_complexity_movement_circle_c8_p <- 
   animate(high_complexity_movement_circle_c8, fps = 100, duration = 2.0, 
-    height = 5, width = 5, units = "in", res = 150)
+    height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 
 # Save as .gif
 anim_save(here("stim", "circle_high_complexity_movement_c1.gif"), 
