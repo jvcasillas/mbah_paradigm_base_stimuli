@@ -461,10 +461,12 @@ anim_save(here("stim", "square_high_complexity_movement_c8.gif"),
 # anim_save(here("stim", "test.mp4"), low_complexity_test)
 
 
-fps_to_degrees <- function(fps = 1) {
-  # 1 f/sec = 359.9999712 degrees/sec
-  degrees <- fps * 359.9999712
-  return(degrees)
+# Visual Angle = 2 x tan-1((Object Size / 2) / Object Distance)
+
+visual_angle <- function(obj, dist) {
+  va <- 2 * atan((obj / 2) / dist) *  (180 / pi)
+  return(va)
 }
 
-fps_to_degrees(50)
+visual_angle(obj = 2.5, dist = 18)
+
