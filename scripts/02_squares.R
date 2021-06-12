@@ -257,25 +257,25 @@ low_complexity_movement_square_c8 <- square_low_complexity_movement(color = 8) +
 
 # Animate
 low_complexity_movement_square_c1_p <- animate(
-  low_complexity_movement_square_c1, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c1, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c2_p <- animate(
-  low_complexity_movement_square_c2, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c2, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c3_p <- animate(
-  low_complexity_movement_square_c3, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c3, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c4_p <- animate(
-  low_complexity_movement_square_c4, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c4, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c5_p <- animate(
-  low_complexity_movement_square_c5, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c5, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c6_p <- animate(
-  low_complexity_movement_square_c6, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c6, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 low_complexity_movement_square_c8_p <- animate(
-  low_complexity_movement_square_c8, fps = 100, duration = 2.0, device = "png", 
+  low_complexity_movement_square_c8, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 
 
@@ -413,25 +413,25 @@ high_complexity_movement_square_c8 <- square_high_complexity_movement(the_color 
 
 # Animate
 high_complexity_movement_square_c1_p <- animate(
-  high_complexity_movement_square_c1, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c1, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c2_p <- animate(
-  high_complexity_movement_square_c2, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c2, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c3_p <- animate(
-  high_complexity_movement_square_c3, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c3, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c4_p <- animate(
-  high_complexity_movement_square_c4, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c4, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c5_p <- animate(
-  high_complexity_movement_square_c5, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c5, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c6_p <- animate(
-  high_complexity_movement_square_c6, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c6, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 high_complexity_movement_square_c8_p <- animate(
-  high_complexity_movement_square_c8, fps = 100, duration = 2.0, device = "png", 
+  high_complexity_movement_square_c8, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 
 # Save as .gif
@@ -455,8 +455,16 @@ anim_save(here("stim", "square_high_complexity_movement_c8.gif"),
 
 
 # save to mp4 attempts (not working)
-# low_complexity_movement_square_c1_p <- animate(fps = 100, duration = 2.0, 
+# low_complexity_test <- animate(fps = 50, duration = 2.0, 
 #   units = "in", height = 5, width = 5, res = 150, 
 #   low_complexity_movement_square_c1, renderer = ffmpeg_renderer())
-# anim_save(here("stim", "square_low_complexity_movement_c1.mp4"), 
-#   low_complexity_movement_square_c1_p)
+# anim_save(here("stim", "test.mp4"), low_complexity_test)
+
+
+fps_to_degrees <- function(fps = 1) {
+  # 1 f/sec = 359.9999712 degrees/sec
+  degrees <- fps * 359.9999712
+  return(degrees)
+}
+
+fps_to_degrees(50)
