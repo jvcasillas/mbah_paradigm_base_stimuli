@@ -1,0 +1,16 @@
+---
+title: "Img"
+date: "Last update: `r Sys.time()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Directory for `img`. 
+This directory contains any image files used in the stimuli or other areas.  
+
+```{r, str, echo=F}
+fs::dir_tree()
+```

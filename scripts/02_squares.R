@@ -1,5 +1,6 @@
 # Squares ---------------------------------------------------------------------
 #
+# Author: Joseph V. Casillas (joseph.casillas@rutgers.edu)
 # Last update: 20201103
 # - Generate square stimuli with the following characteristics:
 #    - Low complexity (4 squares)
@@ -23,7 +24,7 @@ source(here::here("scripts", "01_helpers.R"))
 
 
 
-# Low complexity squares ------------------------------------------------------
+# Low complexity static squares -----------------------------------------------
 
 square_low_complexity_static <- function(color = 1) {
 
@@ -102,6 +103,7 @@ square_low_complexity_static <- function(color = 1) {
   1.25,  1.75,  c_picker(color)[2],        3,
   1.25,  2.25,  c_picker(color)[1],        3)
 
+  # Generate static square
   p_static_square <- square_static_data %>% 
   ggplot(., aes(x = x, y = y, color = color)) + 
     geom_point(pch = 15, size = 85, show.legend = F) + 
@@ -112,6 +114,7 @@ square_low_complexity_static <- function(color = 1) {
   return(p_static_square)
 }
 
+# Create squares and select colors
 square_low_complexity_static_c1 <- square_low_complexity_static(color = 1)
 square_low_complexity_static_c2 <- square_low_complexity_static(color = 2)
 square_low_complexity_static_c3 <- square_low_complexity_static(color = 3)
@@ -141,16 +144,9 @@ ggsave("square_low_complexity_static_c8.png", square_low_complexity_static_c8,
 
 
 
+# Low complexity movement squares ---------------------------------------------
 
-
-
-
-
-
-
-
-
-
+# Square generating function
 square_low_complexity_movement <- function(color = 1) {
 
   movement_static_data <- tribble(
@@ -228,6 +224,7 @@ square_low_complexity_movement <- function(color = 1) {
   1.25,  1.75,  c_picker(color)[2],        3,
   1.25,  2.25,  c_picker(color)[1],        3)
 
+  # Plot square
   p_square_movement <- movement_static_data %>% 
   ggplot(., aes(x = x, y = y, color = color)) + 
     geom_point(pch = 15, size = 85, show.legend = F) + 
@@ -239,6 +236,7 @@ square_low_complexity_movement <- function(color = 1) {
   
 }
 
+# Plot squares, select colors, and init movement
 low_complexity_movement_square_c1 <- square_low_complexity_movement(color = 1) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 low_complexity_movement_square_c2 <- square_low_complexity_movement(color = 2) + 
@@ -278,8 +276,6 @@ low_complexity_movement_square_c8_p <- animate(
   low_complexity_movement_square_c8, fps = 50, duration = 2.0, device = "png", 
   units = "in", height = 5, width = 5, res = 150, renderer = gifski_renderer())
 
-
-
 # Save as gif
 anim_save(here("stim", "square_low_complexity_movement_c1.gif"), 
   low_complexity_movement_square_c1_p)
@@ -313,6 +309,7 @@ anim_save(here("stim", "square_low_complexity_movement_c8.gif"),
 
 # High complexity static squares ----------------------------------------------
 
+# Function for creating high complexity square
 square_high_complexity_static <- function(color = 1) {
 
   high_complexity_square_df_1 <- 
@@ -340,6 +337,7 @@ square_high_complexity_static <- function(color = 1) {
   return(high_complexity_static_square)
 }
 
+# Generate plots with colors selections
 high_complexity_static_square_c1 <- square_high_complexity_static(color = 1)
 high_complexity_static_square_c2 <- square_high_complexity_static(color = 2)
 high_complexity_static_square_c3 <- square_high_complexity_static(color = 3)
@@ -377,13 +375,16 @@ ggsave("square_high_complexity_static_c8.png", high_complexity_static_square_c8,
 
 # High complexity movement squares --------------------------------------------
 
+# Function for generating high complexity movement squares
 square_high_complexity_movement <- function(the_color = 1) {
-  
+
+  # Load movement data
   movement_square_data <- 
     read_csv(here("data", "high_complexity_movement_square.csv")) %>% 
     mutate(color = if_else(color == "white", c_picker(pair = the_color)[1], 
                                              c_picker(pair = the_color)[2]))
 
+  # Plot square
   p_movement_square <- movement_square_data %>% 
   ggplot(., aes(x = x, y = y, color = color)) + 
     geom_point(pch = 15, size = 24, show.legend = F) + 
@@ -395,6 +396,7 @@ square_high_complexity_movement <- function(the_color = 1) {
   
 }
 
+# Generate plots, select colors, init values
 high_complexity_movement_square_c1 <- square_high_complexity_movement(the_color = 1) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 high_complexity_movement_square_c2 <- square_high_complexity_movement(the_color = 2) + 
@@ -409,7 +411,6 @@ high_complexity_movement_square_c6 <- square_high_complexity_movement(the_color 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
 high_complexity_movement_square_c8 <- square_high_complexity_movement(the_color = 8) + 
   transition_states(phase, transition_length = 1, state_length = 0, wrap = F)
-
 
 # Animate
 high_complexity_movement_square_c1_p <- animate(
@@ -452,21 +453,8 @@ anim_save(here("stim", "square_high_complexity_movement_c8.gif"),
 
 # -----------------------------------------------------------------------------
 
-
-
 # save to mp4 attempts (not working)
 # low_complexity_test <- animate(fps = 50, duration = 2.0, 
 #   units = "in", height = 5, width = 5, res = 150, 
 #   low_complexity_movement_square_c1, renderer = ffmpeg_renderer())
 # anim_save(here("stim", "test.mp4"), low_complexity_test)
-
-
-# Visual Angle = 2 x tan-1((Object Size / 2) / Object Distance)
-
-visual_angle <- function(obj, dist) {
-  va <- 2 * atan((obj / 2) / dist) *  (180 / pi)
-  return(va)
-}
-
-visual_angle(obj = 2.5, dist = 18)
-

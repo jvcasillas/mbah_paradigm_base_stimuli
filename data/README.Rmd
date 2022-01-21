@@ -1,0 +1,16 @@
+---
+title: "Data"
+date: "Last update: `r Sys.time()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Directory for `data`. 
+This directory contains `colors.csv` containing html color codes for stimuli, as well as csv files with the data used for the high complexity movements gifs. 
+
+```{r, str, echo=F}
+fs::dir_tree()
+```

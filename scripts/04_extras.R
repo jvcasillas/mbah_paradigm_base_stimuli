@@ -1,8 +1,11 @@
 # Extras ----------------------------------------------------------------------
 #
-#
+# Author: Joseph V. Casillas (joseph.casillas@rutgers.edu)
+# Last update: 20201108
+# - Generate crazy animations we didn't end up using
 #
 # -----------------------------------------------------------------------------
+
 
 
 

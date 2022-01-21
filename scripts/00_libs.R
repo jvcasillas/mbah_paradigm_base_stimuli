@@ -1,4 +1,10 @@
 # Libraries -------------------------------------------------------------------
+#
+# Author: Joseph V. Casillas (joseph.casillas@rutgers.edu)
+# Last update: 20201103
+# - This script loads the packages used to generate the stimuli
+#
+# -----------------------------------------------------------------------------
 
 library("here")
 library("ggplot2")

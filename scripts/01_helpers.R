@@ -1,6 +1,14 @@
 # Helper functions ------------------------------------------------------------
-
-
+#
+# Author: Joseph V. Casillas (joseph.casillas@rutgers.edu)
+# Last update: 20201103
+# - This script loads helper functions to do the following: 
+#    - download html color codes
+#    - select colors from color gen
+#    - generate circles
+#    - load plotting theme
+#    - calculate visual angle
+#
 # -----------------------------------------------------------------------------
 
 
@@ -52,3 +60,16 @@ theme_clear <- function(bg_color = the_colors[9, 2] %>% pull) {
     theme(panel.background = element_rect(fill = bg_color, colour = bg_color))
   )
 }
+
+# Calculate visual angle
+# Visual Angle = 2 x tan-1((Object Size / 2) / Object Distance)
+visual_angle <- function(obj, dist) {
+  va <- 2 * atan((obj / 2) / dist) *  (180 / pi)
+  return(va)
+}
+
+# Example: 
+# visual_angle(obj = 2.5, dist = 18)
+
+
+# -----------------------------------------------------------------------------

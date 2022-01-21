@@ -1,0 +1,16 @@
+---
+title: "Scripts"
+date: "Last update: `r Sys.time()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Directory for `scripts`. 
+This directory contains the R files used to generate and save the MBAH paradigm base stimuli. 
+
+```{r, str, echo=F}
+fs::dir_tree()
+```

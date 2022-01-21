@@ -1,0 +1,16 @@
+---
+title: "Stim"
+date: "Last update: `r Sys.time()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Directory for `stim`. 
+This directory contains the stimuli (.png and .gif files) generated from the R scripts in `./scripts`
+
+```{r, str, echo=F}
+fs::dir_tree(recurse = T)
+```

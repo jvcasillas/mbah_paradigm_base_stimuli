@@ -1,5 +1,6 @@
 # Circles ---------------------------------------------------------------------
 #
+# Author: Joseph V. Casillas (joseph.casillas@rutgers.edu)
 # Last update: 20201108
 # - Generate circle stimuli with the following characteristics:
 #    - Low complexity (1 circle with expanding ring)
@@ -25,6 +26,7 @@ source(here::here("scripts", "01_helpers.R"))
 
 # Low complexity static circles -----------------------------------------------
 
+# Circle generating function
 circle_low_complexity_static <- function(color = 1) {
 
   static_circle_data <- tibble(
@@ -35,6 +37,7 @@ circle_low_complexity_static <- function(color = 1) {
     shape = c(16, 21, 21), 
     stroke = c(30, 20, 25.55))
   
+  # Plot circle
   p_static_circle <- static_circle_data %>% 
   ggplot(., aes(x = x, y = y)) + 
     geom_point(aes(size = size, color = color, shape = shape, stroke = stroke), 
@@ -48,6 +51,7 @@ circle_low_complexity_static <- function(color = 1) {
   return(p_static_circle)
 }
 
+# Generate circle and pick colors
 circle_low_complexity_static_c1 <- circle_low_complexity_static(color = 1)
 circle_low_complexity_static_c2 <- circle_low_complexity_static(color = 2)
 circle_low_complexity_static_c3 <- circle_low_complexity_static(color = 3)
@@ -55,7 +59,6 @@ circle_low_complexity_static_c4 <- circle_low_complexity_static(color = 4)
 circle_low_complexity_static_c5 <- circle_low_complexity_static(color = 5)
 circle_low_complexity_static_c6 <- circle_low_complexity_static(color = 6)
 circle_low_complexity_static_c8 <- circle_low_complexity_static(color = 8)
-
 
 # Save as .png
 ggsave("circle_low_complexity_static_c1.png", circle_low_complexity_static_c1, 
@@ -80,6 +83,7 @@ ggsave("circle_low_complexity_static_c8.png", circle_low_complexity_static_c8,
 
 # Low complexity mobile circles -----------------------------------------------
 
+# Circle generating function
 circle_low_complexity_movement <- function(color = 1) {
 
   movement_circle_data <- tribble(
@@ -104,6 +108,7 @@ circle_low_complexity_movement <- function(color = 1) {
     0, 0, 160, c_picker(color)[2], 21,  0, 3, 
   ) 
 
+  # Plot circles
   p_movement_circle <- movement_circle_data %>% 
   ggplot() + 
     geom_point(aes(x = x, y = y, size = size, color = color, shape = shape, 
@@ -118,6 +123,7 @@ circle_low_complexity_movement <- function(color = 1) {
   return(p_movement_circle)
 }
 
+# Generate circles, pick colors, init values
 low_complexity_movement_circle_c1 <- circle_low_complexity_movement(color = 1) + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 low_complexity_movement_circle_c2 <- circle_low_complexity_movement(color = 2) + 
@@ -132,7 +138,6 @@ low_complexity_movement_circle_c6 <- circle_low_complexity_movement(color = 6) +
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 low_complexity_movement_circle_c8 <- circle_low_complexity_movement(color = 8) + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
-
 
 # Animate
 low_complexity_movement_circle_c1_p <- 
@@ -157,7 +162,6 @@ low_complexity_movement_circle_c8_p <-
   animate(low_complexity_movement_circle_c8, fps = 50, duration = 2.0,
     height = 5, width = 5, units = "in", res = 150, renderer = gifski_renderer())
 
-
 # Save as .gif
 anim_save(here("stim", "circle_low_complexity_movement_c1.gif"), 
   low_complexity_movement_circle_c1_p)
@@ -174,38 +178,14 @@ anim_save(here("stim", "circle_low_complexity_movement_c6.gif"),
 anim_save(here("stim", "circle_low_complexity_movement_c8.gif"), 
   low_complexity_movement_circle_c8_p)
 
-
-#p <- ggplot(airquality, aes(Day, Temp)) + 
-#    geom_line(size = 2, colour = 'steelblue') + 
-#    transition_states(Month, 4, 1) + 
-#    shadow_mark(size = 1, colour = 'grey')
-
-#b <- animate(p, duration = 20, fps = 20, renderer = av_renderer())
-#anim_save("output.mp4", b)
-
-
-
-
 # -----------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 # High complexity static circles ----------------------------------------------
 
+# Circle generating function
 circle_high_complexity_static <- function(color = 1) {
 
   static_circle_data <- tibble(
@@ -217,6 +197,7 @@ circle_high_complexity_static <- function(color = 1) {
               c_picker(pair = color)[2], c_picker(pair = color)[2], 
               c_picker(pair = color)[2])) 
 
+  # Plot circle
   p_static_circle <- static_circle_data %>% 
   ggplot(., aes(x = x, y = y)) + 
     geom_point(aes(size = size, shape = shape, color = color), 
@@ -231,6 +212,7 @@ circle_high_complexity_static <- function(color = 1) {
 
 }
 
+# Generate circles, pick colors
 circle_high_complexity_static_c1 <- circle_high_complexity_static(color = 1)
 circle_high_complexity_static_c2 <- circle_high_complexity_static(color = 2)
 circle_high_complexity_static_c3 <- circle_high_complexity_static(color = 3)
@@ -262,6 +244,7 @@ ggsave("circle_high_complexity_static_c8.png", circle_high_complexity_static_c8,
 
 # High complexity mobile circles ----------------------------------------------
 
+# ANother circle generating function
 circle_high_complexity_movement <- function(color = 1) {
 
   movement_circle_data <- tribble(
@@ -299,6 +282,7 @@ circle_high_complexity_movement <- function(color = 1) {
     0, 0, 160, c_picker(color)[1], 21,  0, 3, 
     0, 0, 160, c_picker(color)[2], 21,  0, 3, ) 
 
+  # Plot circle
   p_movement_circle <- movement_circle_data %>% 
   ggplot() + 
     geom_point(aes(x = x, y = y, size = size, color = color, shape = shape, 
@@ -312,6 +296,7 @@ circle_high_complexity_movement <- function(color = 1) {
   return(p_movement_circle)
 }
 
+# Generate circles, pick colors, init values
 high_complexity_movement_circle_c1 <- circle_high_complexity_movement(color = 1) + 
     transition_states(s, transition_length = 0.5, state_length = 0, wrap = F) 
 high_complexity_movement_circle_c2 <- circle_high_complexity_movement(color = 2) + 
@@ -371,9 +356,7 @@ anim_save(here("stim", "circle_high_complexity_movement_c8.gif"),
 
 
 
-
-
-# Area calculations
+# Area calculations for circles -----------------------------------------------
 
 # Low complex
 red1 <- 75570
@@ -391,7 +374,4 @@ red2  <- 123145
 red3  <- 221700
 red4  <- 320387
 
-blue1 <- 
-blue2 <- 
-blue3 <- 
-blue4 <- 
+# -----------------------------------------------------------------------------

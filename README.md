@@ -1,7 +1,8 @@
+Many Babies At Home - Paradigm base stimuli
+================
+Last update: 2022-01-21 14:24:40
 
-# many\_babies\_stim
-
-Repo for Many Babies study 1 stimuli
+Repo for MBAH study 1 stimuli
 
 ## Experimental design
 
@@ -54,7 +55,3 @@ Note: gifs render extremely slowly in github markdown.
 ## Colors
 
 <https://github.com/MZaharieva/MBAH_ColorSwatches>
-
-## Notes
-
-<https://docs.google.com/document/d/1b1bhtzFyftc5a77UI47BcSK0TkOh9joLmRIzzSjsCPY/edit>

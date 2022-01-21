@@ -1,0 +1,17 @@
+---
+title: "Exp"
+date: "Last update: `r Sys.time()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Directory for `exp`. 
+This directory contains psych.js scripts for presenting MBAH paradigm base stimuli online. 
+This is for testing purposes. 
+
+```{r, str, echo=F}
+fs::dir_tree()
+```
